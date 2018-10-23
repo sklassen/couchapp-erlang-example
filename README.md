@@ -6,6 +6,13 @@ There are two design documents, idx_javascript and idx_erlang. Both generate the
 
 The Makefile also has several examples.
 
+
 Requirements
 
+Ubuntu Users will need these packages
+
 > sudo apt-get install couchapp python-couchdb
+
+CouchDB configuration need erlang
+
+> erlang="{couch_native_process,start_link,[]}"
