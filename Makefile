@@ -1,5 +1,5 @@
 
-all: init populate design javascript erlang
+all: init populate design idx_javascript idx_erlang
 
 init:
 	curl -X PUT http://localhost:5984/example
@@ -11,10 +11,10 @@ design:
 	cd javascript; couchapp push
 	cd erlang; couchapp push
 
-javascript:
+idx_javascript:
 	curl -X GET --max-time 900 "http://localhost:5984/example/_design/javascript/_view/index?reduce=false&limit=10"
 
-erlang:
+idx_erlang:
 	curl -X GET --max-time 900 "http://localhost:5984/example/_design/erlang/_view/index?reduce=false&limit=10"
 
 clean:
