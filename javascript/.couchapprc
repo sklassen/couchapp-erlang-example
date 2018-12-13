@@ -1,7 +1,7 @@
 {
   "env" : {
     "default" : {
-      "db" : "http://localhost:5984/example"
+      "db" : "http://admin:3igWheel@localhost:5984/example"
     }
   }
 }
