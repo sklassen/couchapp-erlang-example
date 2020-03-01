@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import sys
 import couchdb
@@ -7,11 +7,11 @@ import random
 if len(sys.argv)==2:
 	n_docs=int(sys.argv[1])
 else:
-	n_docs=500
+	n_docs=5000
 
-srv=couchdb.Server(url='http://localhost:5984/')
+srv=couchdb.Server(url='http://admin:3igWheel@127.0.0.1:5984/')
 
-if 'example' not in srv:
+if not 'example' in srv:
 	srv.create('example')
 
 db=srv['example']
@@ -38,5 +38,5 @@ for idx in ids:
 				doc[z][x+y]=random.randint(1,101)
 	db[idx]={'data':doc}
 
-print "Done"
+print("Done")
 exit(0)
