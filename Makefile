@@ -2,7 +2,7 @@
 all: init populate design idx_javascript idx_erlang
 
 USER=admin
-PASSWD=3igWheel
+PASSWD=B1stDB
 
 init:
 	curl -X PUT http://${USER}:${PASSWD}@localhost:5984/example
