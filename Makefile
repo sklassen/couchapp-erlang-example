@@ -1,18 +1,20 @@
 
-all: init populate design idx_javascript idx_erlang
+all: init populate push_javascript push_erlang idx_javascript idx_erlang
 
 USER=admin
-PASSWD=B1stDB
+PASSWD=Be1stDB
 
 init:
 	curl -X PUT http://${USER}:${PASSWD}@localhost:5984/example
 
 populate:
-	./init-example-db.py 50
+	./init-example-db.py ${USER} ${PASSWD} 500 10
 
-design:
-	cd javascript; couchapp push http://${USER}:${PASSWD}@localhost:5984/example
-	cd erlang; couchapp push http://${USER}:${PASSWD}@localhost:5984/example
+push_javascript:
+	couchapp push ./javascript http://${USER}:${PASSWD}@localhost:5984/example
+
+push_erlang:
+	couchapp push ./erlang http://${USER}:${PASSWD}@localhost:5984/example
 
 idx_javascript:
 	curl -X GET --max-time 900 "http://${USER}:${PASSWD}@localhost:5984/example/_design/javascript/_view/index?reduce=false&limit=10"
