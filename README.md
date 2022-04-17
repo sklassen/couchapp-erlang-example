@@ -13,10 +13,13 @@ Ubuntu Users will need these packages
 
 > sudo apt-get install couchapp python-couchdb
 
-CouchDB configuration need the native erlang views switched on in the local.ini [native_query_servers]
+CouchDB configuration need the native erlang views switched on in the local.ini 
 
-> erlang="{couch_native_process,start_link,[]}"
+[native_query_servers]
+enable_erlang_query_server = true
 
-In version 2.3 onwards this should be changed to 
 
-> enable_erlang_query_server = true
+
+`http://localhost:5984/example/_design/erlang/_view/index?reduce=false&limit=100`
+`http://localhost:5984/example/_design/erlang/_list/csv/index?reduce=false&limit=100`
+
