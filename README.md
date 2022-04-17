@@ -15,9 +15,10 @@ Ubuntu Users will need these packages
 
 CouchDB configuration need the native erlang views switched on in the local.ini 
 
+```
 [native_query_servers]
 enable_erlang_query_server = true
-
+```
 
 
 `http://localhost:5984/example/_design/erlang/_view/index?reduce=false&limit=100`
