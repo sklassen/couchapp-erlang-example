@@ -47,6 +47,14 @@ show_erlang:
 clean:
 	curl -X DELETE http://${USER}:${PASSWD}@${HOST}:${PORT}/${DB}
  
-put:
-	curl -X PUT "http://admin:3igWheel@127.0.0.1:5984/example/_design/javascript/_update/put?tq=B&dt=2024-01-01&val=3.0"
-	curl -X PUT "http://admin:3igWheel@127.0.0.1:5984/example/_design/javascript/_update/put/A?dt=2024-01-01&val=3.0"
+put_javascript:
+	curl -X PUT "http://${USER}:${PASSWD}@${HOST}:${PORT}/${DB}/_design/javascript/_update/put?tq=A&dt=2024-01-01&val=3.0"
+	curl -X GET "http://${USER}:${PASSWD}@${HOST}:${PORT}/${DB}/A"
+	curl -X PUT "http://${USER}:${PASSWD}@${HOST}:${PORT}/${DB}/_design/javascript/_update/put/A?dt=2024-01-01&val=3.1"
+	curl -X GET "http://${USER}:${PASSWD}@${HOST}:${PORT}/${DB}/A"
+
+put_erlang:
+	curl -X PUT "http://${USER}:${PASSWD}@${HOST}:${PORT}/${DB}/_design/erlang/_update/put?tq=A&dt=2024-01-01&val=3.0"
+	curl -X GET "http://${USER}:${PASSWD}@${HOST}:${PORT}/${DB}/A"
+	curl -X PUT "http://${USER}:${PASSWD}@${HOST}:${PORT}/${DB}/_design/erlang/_update/put/A?dt=2024-01-01&val=3.1"
+	curl -X GET "http://${USER}:${PASSWD}@${HOST}:${PORT}/${DB}/A"
